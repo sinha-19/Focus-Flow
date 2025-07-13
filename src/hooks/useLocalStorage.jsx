@@ -21,7 +21,6 @@ const useLocalStorage = (key, initialValue) => {
     }
   };
 
-  // Listen for storage changes from other tabs
   useEffect(() => {
     const handleStorageChange = (e) => {
       if (e.key === key && e.newValue !== null) {
