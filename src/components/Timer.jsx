@@ -55,8 +55,6 @@ const Timer = ({
   const circumference = 2 * Math.PI * radius;
   const strokeDasharray = circumference;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
-
-  // Calculate time-based urgency
   const urgencyLevel = timeLeft / (minutes * 60);
   const isUrgent = urgencyLevel < 0.1 && timeLeft > 0;
 
@@ -64,14 +62,12 @@ const Timer = ({
     <div className="timer-display">
       <div className="progress-container">
         <svg className="progress-ring" width="320" height="320">
-          {/* Background circle */}
           <circle
             className="progress-circle"
             cx="160"
             cy="160"
             r={radius}
           />
-          {/* Progress circle */}
           <circle
             className={`progress-circle active ${sessionType} ${isUrgent ? 'urgent' : ''}`}
             cx="160"
@@ -83,7 +79,6 @@ const Timer = ({
               opacity: isActive ? 1 : 0.7
             }}
           />
-          {/* Inner decorative circle */}
           <circle
             cx="160"
             cy="160"
