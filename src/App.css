@@ -6,7 +6,6 @@
   position: relative;
 }
 
-/* Enhanced Header */
 .header {
   margin-bottom: var(--space-3xl);
   position: relative;
@@ -60,7 +59,6 @@
   align-items: start;
 }
 
-/* Premium Timer Section */
 .timer-section {
   background: var(--glass-bg);
   backdrop-filter: blur(24px);
@@ -95,7 +93,6 @@
   100% { left: 100%; }
 }
 
-/* Enhanced Session Tabs */
 .session-tabs {
   display: flex;
   gap: var(--space-sm);
@@ -157,7 +154,6 @@
   font-weight: 400;
 }
 
-/* Premium Timer Display */
 .timer-display {
   margin: var(--space-3xl) 0;
   position: relative;
@@ -233,7 +229,6 @@
   backdrop-filter: blur(8px);
 }
 
-/* Advanced Controls */
 .controls {
   display: flex;
   gap: var(--space-md);
@@ -309,14 +304,12 @@
   font-size: 1.2rem;
 }
 
-/* Enhanced Sidebar */
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: var(--space-2xl);
 }
 
-/* Premium Stats Section */
 .stats-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -373,7 +366,6 @@
   letter-spacing: 0.05em;
 }
 
-/* Advanced Settings */
 .settings-section {
   background: var(--glass-bg);
   backdrop-filter: blur(24px);
@@ -437,7 +429,6 @@
   box-shadow: 0 0 0 4px rgba(255, 217, 61, 0.2);
 }
 
-/* Productivity Insights */
 .insights-section {
   background: var(--glass-bg);
   backdrop-filter: blur(24px);
@@ -477,7 +468,6 @@
   line-height: 1.4;
 }
 
-/* Responsive Design */
 @media (min-width: 1024px) {
   .main-content {
     grid-template-columns: 2fr 1fr;
@@ -523,7 +513,6 @@
   }
 }
 
-/* Premium Animations */
 @keyframes timerComplete {
   0% { transform: scale(1); }
   25% { transform: scale(1.05); }
@@ -541,7 +530,6 @@
   filter: drop-shadow(0 0 16px currentColor);
 }
 
-/* Notification System */
 .notification-indicator {
   position: absolute;
   top: var(--space-lg);
@@ -560,7 +548,6 @@
   50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* Focus Mode Indicator */
 .focus-mode-indicator {
   position: absolute;
   top: -10px;
@@ -581,7 +568,6 @@
   50% { transform: scale(1.1); }
 }
 
-/* Productivity Streak */
 .streak-indicator {
   display: flex;
   align-items: center;
