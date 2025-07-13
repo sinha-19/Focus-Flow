@@ -50,7 +50,7 @@ const ProductivityInsights = ({ stats, currentSession }) => {
       });
     }
     
-    return insights.slice(0, 3); // Show max 3 insights
+    return insights.slice(0, 3);
   };
 
   const insights = getInsights();
