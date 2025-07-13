@@ -43,7 +43,6 @@ function App() {
   const { playNotification } = useAudio();
   const { notifySessionComplete } = useNotifications();
 
-  // Check if it's a new day and reset daily stats
   useEffect(() => {
     const today = new Date().toDateString();
     if (stats.lastSessionDate !== today) {
@@ -55,7 +54,6 @@ function App() {
     }
   }, [stats.lastSessionDate, setStats]);
 
-  // Update best streak
   useEffect(() => {
     if (stats.currentStreak > stats.bestStreak) {
       setStats(prev => ({
@@ -95,15 +93,10 @@ function App() {
     setIsActive(false);
     setIsComplete(true);
     
-    // Play completion sound
     if (settings.soundEnabled) {
       playNotification(activeSession === 'work' ? 'completion' : 'break');
     }
-    
-    // Show browser notification
     notifySessionComplete(activeSession);
-
-    // Update stats
     const today = new Date().toDateString();
     setStats(prev => {
       const newStats = { ...prev };
@@ -115,15 +108,11 @@ function App() {
         newStats.todaySessions += 1;
         newStats.lastSessionDate = today;
       } else {
-        // Track break time
         newStats.totalBreakTime += getCurrentDuration();
-        // Don't break streak for breaks, but don't increment either
       }
       
       return newStats;
     });
-
-    // Auto-advance to next session
     setTimeout(() => {
       if (activeSession === 'work') {
         const newSessionCount = sessionCount + 1;
@@ -181,7 +170,6 @@ function App() {
     setSettings(newSettings);
   };
 
-  // Update document title with timer
   useEffect(() => {
     if (isActive && currentTime > 0) {
       const minutes = Math.floor(currentTime / 60);
@@ -193,7 +181,6 @@ function App() {
     }
   }, [currentTime, isActive, activeSession]);
 
-  // Favicon update based on session
   useEffect(() => {
     const favicon = document.querySelector('link[rel="icon"]');
     if (favicon) {
@@ -203,18 +190,15 @@ function App() {
         'long-break': '🌟'
       };
       
-      // Create a simple colored favicon
       const canvas = document.createElement('canvas');
       canvas.width = 32;
       canvas.height = 32;
       const ctx = canvas.getContext('2d');
       
-      // Background
       ctx.fillStyle = activeSession === 'work' ? '#ff6b6b' : 
                      activeSession === 'short-break' ? '#51cf66' : '#339af0';
       ctx.fillRect(0, 0, 32, 32);
       
-      // Icon
       ctx.font = '20px Arial';
       ctx.textAlign = 'center';
       ctx.fillStyle = 'white';
@@ -224,7 +208,6 @@ function App() {
     }
   }, [activeSession, isActive]);
 
-  // Keyboard shortcuts
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.target.tagName === 'INPUT') return;
