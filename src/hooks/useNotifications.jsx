@@ -4,7 +4,6 @@ const useNotifications = () => {
   const permissionRef = useRef(null);
 
   useEffect(() => {
-    // Request notification permission on mount
     if ('Notification' in window && Notification.permission === 'default') {
       Notification.requestPermission().then(permission => {
         permissionRef.current = permission;
@@ -22,7 +21,6 @@ const useNotifications = () => {
         ...options
       });
 
-      // Auto-close after 5 seconds
       setTimeout(() => {
         notification.close();
       }, 5000);
