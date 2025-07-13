@@ -20,7 +20,6 @@ const useLocalStorage = (key, initialValue) => {
       console.error(`Error setting localStorage key "${key}":`, error);
     }
   };
-
   useEffect(() => {
     const handleStorageChange = (e) => {
       if (e.key === key && e.newValue !== null) {
